@@ -33,13 +33,13 @@ export default function GenerateBarCode() {
         }
 
         try {
-            alert('Bar code called')
+         
             const response = await createBarCode(data.trim());
             const blob = response.data;
             const objectUrl = URL.createObjectURL(blob);
             setBarCodeUrl(objectUrl);
         } catch (err) {
-            console.error("Error generating Barcode:", err);
+         
             setError("Failed to generate Barcode. Make sure the backend server is running.");
         } finally {
             setLoading(false);
