@@ -3,7 +3,7 @@ import axios from "axios";
 
 // For Local Development
 // export const apiClient = axios.create({
-//     baseURL: "http://localhost:9191/qrbarcodegenerator",
+//     baseURL: "http://localhost:9191/qrbarcodegeneratorrest",
 //     headers: {
 //         "Content-Type": "application/json",
 //     },
@@ -11,8 +11,5 @@ import axios from "axios";
 
 // For Local Development
 export const apiClient = axios.create({
-    baseURL: "http://192.168.0.219:8081/qrbarcodegenerator",
-    headers: {
-        "Content-Type": "application/json",
-    },
+    baseURL: 'http://192.168.0.219:8081/qrbarcodegeneratorrest'
 })
