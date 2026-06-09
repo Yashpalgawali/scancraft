@@ -25,7 +25,7 @@ export default function GenerateBarCode() {
 
         setLoading(true);
         setError(null);
-        
+
         // Revoke old URL if it exists
         if (barCodeUrl) {
             URL.revokeObjectURL(barCodeUrl);
@@ -33,6 +33,7 @@ export default function GenerateBarCode() {
         }
 
         try {
+            alert('Bar code called')
             const response = await createBarCode(data.trim());
             const blob = response.data;
             const objectUrl = URL.createObjectURL(blob);
@@ -89,8 +90,8 @@ export default function GenerateBarCode() {
                     />
                 </div>
 
-                <button 
-                    type="submit" 
+                <button
+                    type="submit"
                     className="btn-submit"
                     disabled={loading || !data.trim()}
                 >
@@ -121,9 +122,9 @@ export default function GenerateBarCode() {
             {barCodeUrl && !loading && (
                 <div className="result-container">
                     <div className="qr-wrapper" style={{ padding: "20px 30px" }}>
-                        <img 
-                            src={barCodeUrl} 
-                            alt="Generated Barcode" 
+                        <img
+                            src={barCodeUrl}
+                            alt="Generated Barcode"
                             className="qr-image"
                             style={{ maxHeight: "120px", width: "auto" }}
                         />
