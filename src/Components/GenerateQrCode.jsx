@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { createQrCode } from "./Services/generateQr";
+import { createQrCode, hello } from "./Services/generateQr";
 
 export default function GenerateQrCode() {
     const [data, setData] = useState("");
@@ -25,7 +25,7 @@ export default function GenerateQrCode() {
 
         setLoading(true);
         setError(null);
-        
+
         // Revoke old URL if it exists
         if (qrCodeUrl) {
             URL.revokeObjectURL(qrCodeUrl);
@@ -34,6 +34,7 @@ export default function GenerateQrCode() {
 
         try {
             const response = await createQrCode(data.trim());
+
             const blob = response.data;
             const objectUrl = URL.createObjectURL(blob);
             setQrCodeUrl(objectUrl);
@@ -89,8 +90,8 @@ export default function GenerateQrCode() {
                     />
                 </div>
 
-                <button 
-                    type="submit" 
+                <button
+                    type="submit"
                     className="btn-submit"
                     disabled={loading || !data.trim()}
                 >
@@ -117,9 +118,9 @@ export default function GenerateQrCode() {
             {qrCodeUrl && !loading && (
                 <div className="result-container">
                     <div className="qr-wrapper">
-                        <img 
-                            src={qrCodeUrl} 
-                            alt="Generated QR Code" 
+                        <img
+                            src={qrCodeUrl}
+                            alt="Generated QR Code"
                             className="qr-image"
                             style={{ width: "200px", height: "200px" }}
                         />

@@ -68,6 +68,7 @@ export default function ReadCode() {
 
         try {
             const response = await readCode(file);
+            console.log('response is ', response)
             // Normalise: backend may return a plain string OR { text, format }
             const raw = response.data;
             if (typeof raw === "string") {

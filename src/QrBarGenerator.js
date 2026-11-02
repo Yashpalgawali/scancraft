@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import { HashRouter, Routes, Route, NavLink } from "react-router-dom";
 import GenerateQrCode from "./Components/GenerateQrCode";
 import GenerateBarCode from "./Components/GenerateBarCode";
 import ReadCode from "./Components/ReadCode";
@@ -6,7 +6,7 @@ import ReadCode from "./Components/ReadCode";
 export default function QrBarGenerator() {
     return (
         <div className="container">
-            <BrowserRouter basename="/scancraft">
+            <HashRouter>
                 <div className="card">
                     <h1 className="title-gradient">ScanCraft</h1>
                     <p className="subtitle">Generate & scan QR Codes and Barcodes instantly</p>
@@ -39,7 +39,7 @@ export default function QrBarGenerator() {
                         <Route path="/scan" element={<ReadCode />} />
                     </Routes>
                 </div>
-            </BrowserRouter>
+            </HashRouter>
         </div>
     );
 }
